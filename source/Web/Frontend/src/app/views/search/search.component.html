@@ -1,0 +1,185 @@
+<style type="text/css">
+    .register-table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        .register-table td,
+        .register-table tr {
+            margin: 0px;
+            padding: 2px;
+            border-spacing: 0px;
+            border-collapse: collapse;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+    h3 {
+        display: inline-block;
+        margin: 0px;
+    }
+</style>
+
+<div class="page-wrapper">
+    <div class="page-inner">
+        <script>
+            'use strict';
+            var classHolder = document.getElementsByTagName("BODY")[0],
+                themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) : {},
+                themeURL = themeSettings.themeURL || '',
+                themeOptions = themeSettings.themeOptions || '';
+            if (themeSettings.themeOptions) {
+                classHolder.className = themeSettings.themeOptions;
+                console.log("%c✔ Theme settings loaded", "color: #148f32");
+            }
+            else {
+                console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+            }
+            if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+                var cssfile = document.createElement('link');
+                cssfile.id = 'mytheme';
+                cssfile.rel = 'stylesheet';
+                cssfile.href = themeURL;
+                document.getElementsByTagName('head')[0].appendChild(cssfile);
+            }
+            var saveSettings = function () {
+                themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function (item) {
+                    return /^(nav|header|mod|display)-/i.test(item);
+                }).join(' ');
+                if (document.getElementById('mytheme')) {
+                    themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+                };
+                localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+            }
+            var resetSettings = function () {
+                localStorage.setItem("themeSettings", "");
+            }
+        </script>
+        <script>
+            function validate() {
+                alert('Hello World');
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }
+        </script>
+        <div class="page-content-wrapper">
+            <main id="js-page-content" role="main" class="page-content">
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">HRMS</a></li>
+
+                    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+                </ol>
+                <div class="subheader">
+                    <h1 class="subheader-title">
+                        <i class='subheader-icon fal fa-'></i> Page <span class='fw-300'>Control Panel</span> <sup class='badge badge-primary fw-500'>ADDON</sup>
+                        <small>
+                            Administrator
+                        </small>
+                    </h1>
+                    <div class="subheader-block">
+                        Administrator
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div id="panel-1" class="panel">
+
+                            <div class="panel-hdr">
+                                <h2>
+                                    Panel <span class="fw-300"><i>Title</i></span>
+                                </h2>
+                                <div class="panel-toolbar">
+                                    <button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+                                    <button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+                                    <button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+                                </div>
+                            </div>
+                            <div class="panel-container show">
+                                <div class="panel-content">
+                                    <div id="panel-5" class="panel">
+                                        <div class="panel-container color-success-200">
+                                            <div class="register">
+                                                <div id="acceptInput" style="margin-left: 50px;">I accept terms</div>
+                                                <div id="sendButtonInput"></div>
+                                            </div>
+                                            <jqxExpander [width]="1500" [showArrow]="false" [toggleMode]="'none'">
+                                                <div>Item Inventory</div>
+                                                <div>
+                                                    <jqxValidator #myValidator ng-model="myValidator" (ngModel)="myValidator" [rules]="rules" [animationDuration]="0" [hintType]="'label'">
+                                                        <form #validateform id="validateform" class="needs-validation">
+                                                            <div class="form-row">
+                                                                <div class="col-md-4 mb-3">
+                                                                    <label class="form-label" for="validationTooltip02">Item Create Date <span class="text-danger">*</span></label>
+                                                                    <jqxDateTimeInput id="dateTimeInput" #dateTimeInput ng-model="dateTimeInput" (ngModel)="dateTimeInput" name="jqxDateTimeInput">
+                                                                    </jqxDateTimeInput>
+                                                                    <div class="valid-tooltip color-info-50">
+                                                                        Looks good!
+                                                                    </div>
+                                                                    <div class="invalid-tooltip red-emoticon">
+                                                                        Required!
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="panel-content border-faded border-left-0 border-right-0 border-bottom-0 d-flex flex-row align-items-center register">
+                                                                <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="validationTooltipAgreement" required>
+                                                                    <label class="custom-control-label" for="validationTooltipAgreement">Agree to terms and conditions <span class="text-danger">*</span></label>
+                                                                    <div class="invalid-tooltip">
+                                                                        You must agree before submitting.
+                                                                    </div>
+                                                                </div>
+                                                                <input id="sendButton" name="sendButton" class="btn btn-outline-primary ml-auto icon-google-plus" width="70" value="add item" type="button" (click)="onSubmit()" />
+                                                            </div>
+                                                        </form>
+                                                    </jqxValidator>
+                                                </div>
+                                                <jqxNotification #msgNotification
+                                                                 [width]="250" [position]="'top-right'" [opacity]="0.9" [autoOpen]="false"
+                                                                 [autoClose]="true" [animationOpenDelay]="800" [autoCloseDelay]="3000" [template]="'error'" [appendContainer]="validateform">
+                                                    <div>
+                                                        success
+                                                    </div>
+                                                </jqxNotification>
+                                            </jqxExpander>
+                                            <br />
+                                            <br />
+                                            <hr />
+                                            <jqxDataTable #ItemsDataTable (onRowSelect)="updateRow($event)" [width]="getWidth()" [source]="dataAdapter" [columns]="columns"
+                                                          [columnsResize]="true" [pageable]="true" [pagerButtonsCount]="10">
+                                            </jqxDataTable>
+                                            <div class="btn-danger" style="width: 850px; margin-top: 20px; display: flex; align-content: space-around;">
+                                                <jqxButton (onClick)="excelExport()" [width]="200">Export to Excel</jqxButton>
+                                                <jqxButton (onClick)="xmlExport()" [width]="200">Export to XML</jqxButton>
+                                                <jqxButton (onClick)="csvExport()" [width]="200">Export to CSV</jqxButton>
+                                                <jqxButton (onClick)="tsvExport()" [width]="200">Export to TSV</jqxButton>
+                                                <jqxButton (onClick)="htmlExport()" [width]="200">Export to HTML</jqxButton>
+                                                <jqxButton (onClick)="jsonExport()" [width]="200">Export to JSON</jqxButton>
+                                                <jqxButton (onClick)="pdfExport()" [width]="200">Export to PDF</jqxButton>
+                                                <jqxButton (onClick)="delete()" [width]="200">Delete</jqxButton>
+                                                <jqxButton (onClick)="update()" [width]="200">Edit</jqxButton>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-container">
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>

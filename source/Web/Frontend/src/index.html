@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>App</title>
+    <link rel="stylesheet" href="assets/css/app.bundle.css" />
+    <link rel="stylesheet" href="assets/css/vendors.bundle.css" />
+    <script type="text/javascript" src="assets/js/vendors.bundle.js"></script>
+    <script type="text/javascript" src="assets/js/app.bundle.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" media="screen, print" href="assets/css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css">
+    <script src="assets/js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+    <script src="assets/jqwidgets/typescript-validator.js"></script>
+    <!--<script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                alert('Starter');
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+    </script>-->
+
+
+</head>
+
+<body>
+    <app-root></app-root>
+    <script src="runtime-es2015.js" type="module"></script>
+    <script src="polyfills-es2015.js" type="module"></script>
+    <script src="runtime-es5.js" nomodule></script>
+    <script src="polyfills-es5.js" nomodule></script>
+    <script src="main-es2015.js" type="module"></script>
+    <script src="main-es5.js" nomodule></script>
+</body>
+</html>

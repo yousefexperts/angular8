@@ -1,0 +1,72 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <BuildServerSideRenderer>false</BuildServerSideRenderer>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+        <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+        <StartupObject>DotNetCoreArchitecture.Web.Program</StartupObject>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Remove="%2a%2a\**" />
+      <Compile Remove="Frontend\dist\**" />
+      <Content Remove="%2a%2a\**" />
+      <Content Remove="Frontend\dist\**" />
+      <EmbeddedResource Remove="%2a%2a\**" />
+      <EmbeddedResource Remove="Frontend\dist\**" />
+      <None Remove="%2a%2a\**" />
+      <None Remove="Frontend\dist\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Frontend\src\app\AppCustomPreloader.ts" />
+      <None Remove="Frontend\src\app\models\catogry\list.catogry.model.ts" />
+      <None Remove="Frontend\src\app\models\Hall.model.ts" />
+      <None Remove="Frontend\src\app\models\halls\add.hall.model.ts" />
+      <None Remove="Frontend\src\app\models\Item.model.ts" />
+      <None Remove="Frontend\src\app\models\item\add.item.model.ts" />
+      <None Remove="Frontend\src\app\models\item\list.item.model.ts" />
+      <None Remove="Frontend\src\app\models\ListCatogry.model.ts" />
+      <None Remove="Frontend\src\app\models\ListItem.model.ts" />
+      <None Remove="Frontend\src\app\services\catogry.service.ts" />
+      <None Remove="Frontend\src\app\services\hallreservation.service.ts" />
+      <None Remove="Frontend\src\app\services\item.service.ts" />
+      <None Remove="Frontend\src\app\views\hallsreservationsearch\search.component.ts" />
+      <None Remove="Frontend\src\app\views\hallsreservationsearch\search.module.ts" />
+      <None Remove="Frontend\src\app\views\search\search.component.ts" />
+      <None Remove="Frontend\src\app\views\search\search.module.ts" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DotNetCore.AspNetCore" Version="9.15.0" />
+        <PackageReference Include="DotNetCore.IoC" Version="9.15.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+        <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\Asp.NetHrEntityFrameworkCore\Northwind.Core.Infra\Northwind.Core.Infra.csproj" />
+        <ProjectReference Include="..\Application\DotNetCoreArchitecture.Application.csproj" />
+        <ProjectReference Include="..\Database\DotNetCoreArchitecture.Database.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <TypeScriptCompile Include="Frontend\src\app\AppCustomPreloader.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\catogry\list.catogry.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\Hall.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\halls\add.hall.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\Item.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\item\add.item.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\item\list.item.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\ListCatogry.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\models\ListItem.model.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\services\catogry.service.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\services\hallreservation.service.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\services\item.service.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\views\hallsreservationsearch\search.component.ts">
+        <SubType>Code</SubType>
+      </TypeScriptCompile>
+      <TypeScriptCompile Include="Frontend\src\app\views\hallsreservationsearch\search.module.ts">
+        <SubType>Code</SubType>
+      </TypeScriptCompile>
+      <TypeScriptCompile Include="Frontend\src\app\views\search\search.component.ts" />
+      <TypeScriptCompile Include="Frontend\src\app\views\search\search.module.ts" />
+    </ItemGroup>
+</Project>
